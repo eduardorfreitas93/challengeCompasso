@@ -1,7 +1,9 @@
-import React, {useRef, useCallback, forwardRef, useImperativeHandle, useEffect, useState} from 'react';
+import React, {useRef, forwardRef, useImperativeHandle, useEffect, useState} from 'react';
 import {Modalize} from 'react-native-modalize';
 import {Portal} from 'react-native-portalize';
 import moment from 'moment';
+
+import useFilterMultimedia from '../../hooks/useFilterMultimedia';
 
 import {Title, Description, DateText} from './styles';
 import Image from '../Image';
@@ -11,10 +13,7 @@ function ModalNews(props, ref) {
 
   const [item, setItem] = useState(null);
 
-  const handleImage = useCallback((item) => {
-    if (!item) return null;
-    return item.multimedia.filter((item) => item.format === 'superJumbo')[0];
-  }, [item]);
+  const handleImage = useFilterMultimedia();
 
   const multimedia = handleImage(item);
 
