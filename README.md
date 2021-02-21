@@ -125,3 +125,14 @@ Acesse a pasta envs na raiz do projeto e altere os arquivos `.json`
     
  - styled-components
     - Lib usada para estilizar os componentes do app
+
+## Teste
+
+Para executar os testes rode
+```
+npm run test
+```
+
+Foram testados dois componentes do App
+
+Obs: Estou estudando testes E2E em react-native, esses foram os meus primeiros testes

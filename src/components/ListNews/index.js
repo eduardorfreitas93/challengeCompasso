@@ -31,7 +31,7 @@ function ListNews({dataNews, loading, refreshList = () => {}, refreshing = false
     const {width, height, url: uri} = handleImage(item);
 
     return (
-      <Post activeOpacity={0.8} onPress={() => openModal(item)}>
+      <Post testID={`post-row-${index}`} activeOpacity={0.8} onPress={() => openModal(item)}>
         <LazyImage
           aspectRatio={width / height}
           shouldLoad={viewable.includes(index)}
@@ -47,6 +47,7 @@ function ListNews({dataNews, loading, refreshList = () => {}, refreshing = false
   return (
     <>
       <FlatList
+        testID="flat-list"
         ref={refFlatList}
         key="list"
         data={dataNews}
@@ -58,7 +59,7 @@ function ListNews({dataNews, loading, refreshList = () => {}, refreshing = false
         refreshing={refreshing}
         keyExtractor={(_, index) => String(index)}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={loading && <Loading />}
+        ListFooterComponent={loading && <Loading testID="loading-list" />}
         renderItem={({item, index}) => renderListItemTechnology(item, index)}
       />
 
