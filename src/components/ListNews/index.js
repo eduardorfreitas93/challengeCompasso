@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 
 import LazyImage from '../../components/LazyImage';
 import ModalNews from '../../components/ModalNews';
-import useFilterMultimedia from '../../hooks/useFilterMultimedia';
+import FilterMultimedia from '../../utils/FilterMultimedia';
 
 import {Post, Title, Loading} from './styles';
 
@@ -20,7 +20,7 @@ function ListNews({dataNews, loading, refreshList = () => {}, refreshing = false
     setViewable(changed.map(({index}) => index));
   }, []);
 
-  const handleImage = useFilterMultimedia();
+  const handleImage = FilterMultimedia();
 
   function openModal(item) {
     modalRef.current.open(item);

@@ -3,7 +3,7 @@ import {Modalize} from 'react-native-modalize';
 import {Portal} from 'react-native-portalize';
 import moment from 'moment';
 
-import useFilterMultimedia from '../../hooks/useFilterMultimedia';
+import FilterMultimedia from '../../utils/FilterMultimedia';
 
 import {Title, Description, DateText} from './styles';
 import Image from '../Image';
@@ -13,7 +13,7 @@ function ModalNews(props, ref) {
 
   const [item, setItem] = useState(null);
 
-  const handleImage = useFilterMultimedia();
+  const handleImage = FilterMultimedia();
 
   const multimedia = handleImage(item);
 
